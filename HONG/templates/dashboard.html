@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="static/dashboard.css">
+</head>
+<body>
+    <header>
+        <div class="account-menu">
+            <a href="/logout">Logout</a>
+        </div>
+        <a href="#" class="add-notice-btn">Add NOTICE</a>
+    </header>
+    <div class="announcement">
+        <h1>Announcements</h1>
+        <ul>
+            {% for announcement in announcements %}
+            <li>
+                <h3>{{ announcement.title }}</h3>
+                <a href="{{ announcement.url }}" target="_blank">{{ announcement.url }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

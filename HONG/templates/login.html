@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <section class="login-form">
+        <h1>MYME</h1>
+        <form action="" method="post">
+            <div class="int-area">
+                <input type="text" name="username" id="username" autocomplete="off" required>
+                <label for="username">USER NAME</label>
+            </div>
+            <div class="int-area">
+                <input type="password" name="password" id="password" autocomplete="off" required>
+                <label for="password">PASSWORD</label>
+            </div>
+            <div class="btn-area">
+                <input id="button" type="submit" value="Login">
+            </div>
+        </form>
+        <div class="caption">
+            <a href="">Sign in</a>
+        </div>
+    </section>
+    <script>
+        $(document).ready(function(){
+            $('#btn').on('click', function(e){
+                e.preventDefault();
+                let username = $('#username').val();
+                let password = $('#password').val();
+                
+                if(username === ""){
+                    $('label[for="username"]').addClass('warning');
+                    setTimeout(function(){
+                        $('label[for="username"]').removeClass('warning');
+                    }, 1500);
+                }
+                else if(password === ""){
+                    $('label[for="password"]').addClass('warning');
+                    setTimeout(function(){
+                        $('label[for="password"]').removeClass('warning');
+                    }, 1500);
+                }
+                else {
+                    $('form').submit(); // 유효성 검사를 통과하면 폼 제출
+                }
+            });
+        });
+    </script>
+</body>
+</html>

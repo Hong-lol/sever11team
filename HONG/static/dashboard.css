@@ -1,0 +1,59 @@
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    background-color: #333;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #222;
+}
+
+.account-menu {
+    text-align: left;
+}
+
+.account-menu a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.add-notice-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.announcement {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 800px;
+}
+
+.announcement ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.announcement li {
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+}
+
+.announcement h3 {
+    margin: 0;
+}
+
+.announcement a {
+    color: #007bff;
+    text-decoration: none;
+}
