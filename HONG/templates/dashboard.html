@@ -13,16 +13,47 @@
         </div>
         <a href="#" class="add-notice-btn">Add NOTICE</a>
     </header>
-    <div class="announcement">
-        <h1>Announcements</h1>
-        <ul>
-            {% for announcement in announcements %}
-            <li>
-                <h3>{{ announcement.title }}</h3>
-                <a href="{{ announcement.url }}" target="_blank">{{ announcement.url }}</a>
-            </li>
+
+    <div class="post-icons">
+        {% for user, posts in users_post.items() %}
+            {% for post in posts %}
+                <div class="post-icon">
+                    <a href="/select?category={{ post }}">
+                        <img src="static/icon.png" alt="Post icon">
+                    </a>
+                    <p>{{ post }}</p>
+                </div>
             {% endfor %}
-        </ul>
+        {% endfor %}
     </div>
+    
+    
+    <div class="search-container">
+        <span class="close-btn">&times;</span>
+        <form id="category-form" action="/select" method="POST">
+            <select id="category">
+                <option value="ssu">숭실대공지사항</option>
+                <option value="stocks">주식</option>
+                <option value="sports">스포츠</option>
+            </select>
+            <button type="submit">Select</button>
+        </form>
+    </div>
+
+    <script>
+        document.querySelector('.add-notice-btn').addEventListener('click', function() {
+            document.querySelector('.search-container').style.display = 'block';
+        });
+
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            document.querySelector('.search-container').style.display = 'none';
+        });
+
+        document.getElementById('category-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var category = document.getElementById('category').value;
+            window.location.href = '/select?category=' + category;  // 수정된 부분
+        });
+    </script>
 </body>
 </html>

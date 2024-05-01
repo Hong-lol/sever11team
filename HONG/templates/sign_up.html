@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="static/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    <section class="login-form">
-        <h1>MYME</h1>
+    <section class="signup-form">
+        <h1>Sign Up</h1>
         <form action="" method="post">
             <div class="int-area">
                 <input type="text" name="username" id="username" autocomplete="off" required>
@@ -19,12 +19,13 @@
                 <input type="password" name="password" id="password" autocomplete="off" required>
                 <label for="password">PASSWORD</label>
             </div>
+            <!-- 추가적인 입력 필드를 여기에 추가할 수 있습니다. -->
             <div class="btn-area">
-                <input id="button" type="submit" value="Login">
+                <input id="button" type="submit" value="Sign Up">
             </div>
         </form>
         <div class="caption">
-            <a href="/sign_up">Sign in</a>
+            <a href="/login">Already have an account? Sign in</a>
         </div>
     </section>
     <script>
