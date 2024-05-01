@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>select</title>
+    <link rel="stylesheet" href="static/dashboard.css">
+</head>
+<body>
+    <header>
+        <div class="account-menu">
+            <a href="/logout">Logout</a>
+        </div>
+        <a href="#" class="add-notice-btn">Add NOTICE</a>
+    </header>
+    <div class="announcement">
+        <h1>{{ category }}</h1>
+        <ul class="notice-list">
+            {% for announcement in announcements %}
+            <li class="notice-item">
+                <h3>{{ announcement.title }}</h3>
+                <a href="{{ announcement.url }}" target="_blank">{{ announcement.url }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    
+    <div class="search-container">
+        <span class="close-btn">&times;</span>
+<form id="category-form" action="/select" method="POST">
+    <select name="category" id="category">
+        <option value="ssu">숭실대공지사항</option>
+        <option value="stocks">주식</option>
+        <option value="sports">스포츠</option>
+    </select>
+    <button type="submit">Select</button>
+</form>
+
+    </div>
+
+    <script>
+        document.querySelector('.add-notice-btn').addEventListener('click', function() {
+            document.querySelector('.search-container').style.display = 'block';
+        });
+    
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            document.querySelector('.search-container').style.display = 'none';
+        });
+    
+        document.getElementById('category-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var category = document.getElementById('category').value;
+            window.location.href = '/select';  // 여기를 /select로 변경
+        });
+    </script>
+    
+</body>
+</html>
